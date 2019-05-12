@@ -1,7 +1,10 @@
+"use strict";
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from 'app.jsx';
 import * as serviceWorker from './serviceWorker';
+import { strict } from 'assert';
 
 ReactDOM.render(<App {...(app.dataset)}/>, document.getElementById('app'));
 

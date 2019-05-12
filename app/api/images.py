@@ -6,8 +6,11 @@ from sqlalchemy import func
 
 @bp.route('/images/counts', methods=['GET'])
 def get_image_counts():
-    out_dict={}
+    output=[]
     counts_list = db.session.query(func.count(Image.id),ImageStatus.label).group_by(Image.status).join(ImageStatus).all()
     for count in counts_list:
-        out_dict[count[1]]=count[0]
-    return jsonify(out_dict)
+        item={}
+        item['status']=count[1]
+        item['count']=count[0]
+        output.append(item)
+    return jsonify(output)

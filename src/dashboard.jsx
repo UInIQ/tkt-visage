@@ -17,9 +17,11 @@ class Dashboard extends Component {
                     <option value='10'>10 seconds</option>
                     <option value='60'>60 seconds</option>
                 </select>
+                <ImageStatusChart updateFreq={this.state.updateFreq} apiroot={this.props.apiroot}/>
             </div>
         )
     }
+
 
     handleFreqChange(event) {
         this.setState(

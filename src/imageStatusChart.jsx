@@ -34,7 +34,7 @@ class ImageStatusChart extends Component {
 
     fetchData() {
         let xhttp = new XMLHttpRequest();
-        xhttp.open("GET", '/api/images/counts', true);
+        xhttp.open("GET", this.props.apiroot + '/images/counts', true);
         xhttp.onload = function(e) {
             if (xhttp.readyState === 4 && xhttp.status === 200) {
                 const count = this.state.count + 1
@@ -66,9 +66,9 @@ class ImageStatusChart extends Component {
             let labels=[];
             let values=[];
 
-            this.state.imageCounts.map((status,idx) => {
-                labels[idx]=status.status;
-                values[idx]=status.count;
+            this.state.imageCounts.map((obj) => {
+                labels.push(obj.status);
+                values.push(obj.count);
             })
 
             return (

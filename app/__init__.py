@@ -25,7 +25,7 @@ def create_app(config_class=Config):
     app.register_blueprint(auth_bp)
 
     from app.api import bp as api_bp
-    app.register_blueprint(api_bp, url_prefix='/api')
+    app.register_blueprint(api_bp, url_prefix=app.config['API_URL_PREFIX'])
 
     from app.errors import bp as errors_bp
     app.register_blueprint(errors_bp)

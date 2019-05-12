@@ -1,5 +1,5 @@
 from app import create_app, db
-from app.models import User, Person, Program, Face, Image, ImageFace
+from app.models import User, Person, Program, Face, Image, ImageFace, ImageStatus
 
 app = create_app()
 
@@ -11,5 +11,6 @@ def make_shell_context():
         'Face': Face,
         'Image': Image,
         'Program': Program,
-        'ImgFace': ImageFace
+        'ImgFace': ImageFace,
+        'ImageStatus' : ImageStatus
     }
